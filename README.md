@@ -1,4 +1,6 @@
-Regular Expression Tutorial
+# Regular Expression Tutorial
+
+
 July 19, 2021
 As you know, JavaScript has many useful methods that can check if a string contains a certain letter or phrase. For example, the following expressions all return true based on what they are searching for:
 
@@ -22,7 +24,7 @@ The string is between 3–16 characters long
 
 Regular expressions can feel like their own language at times, but in fact they are universal and can be used within all programming languages. Let's break down the preceding “Matching a Username” regex in order to explore regex components in general.
 
-Regex Components
+## Regex Components
 A regex is considered a literal, so the pattern must be wrapped in slash characters (/). If we examine the “Matching a Username” regex, you'll see that this is true:
 
 /^[a-z0-9_-]{3,16}$/
@@ -30,7 +32,7 @@ Note: JavaScript provides two ways to create a regex object. The first, shown in
 
 Now let's take a look at the components of a regex.
 
-Anchors
+## Anchors
 The characters ^ and $ are both considered to be anchors.
 
 The ^ anchor signifies a string that begins with the characters that follow it. This could be in one of two formats:
@@ -45,7 +47,7 @@ So in our “Matching a Username” regex, the string must start and end with so
 
 Let's take a look at the pattern [a-z0-9_-] and see what it means.
 
-Bracket Expressions
+## Bracket Expressions
 Anything inside a set of square brackets ([]) represents a range of characters that we want to match. These patterns are known as bracket expressions, but they are also known as a positive character group, because they outline the characters we want to include. We can write these expressions to include all of the characters we want to match. For example, [abc] will look for a string that includes a or b or c, regardless of the length of the string. So all of the following examples would match: "aaa", "bin" "court", "abracadabra", and "bca".
 
 You'll more commonly see a hyphen (-) used between alphanumeric characters (letters and numbers only) to represent a range of those possible characters. This means that [a-c] and [abc] will look for the exact same thing.
@@ -78,7 +80,7 @@ What about the string "Lernantino"? This would not match our pattern because it 
 
 It's important to note that a bracket expression can be turned into a negative character group by adding the ^ symbol to the beginning of the expression inside the brackets. A common example is matching a string that doesn't include any vowels. The pattern [^aeiouAEIOU] would find any strings that don't include lowercase or uppercase vowels.
 
-Quantifiers
+## Quantifiers
 All right, so now we know what we're looking for inside the brackets. What about the last requirement of the regex ("is between 3–16 characters long")? And what about that strange sequence of characters that appeared before the $ anchor ({3,16}). To answer these questions, let's take a look at quantifiers.
 
 Quantifiers set the limits of the string that your regex matches (or an individual section of the string). They frequently include the minimum and maximum number of characters that your regex is looking for.
@@ -153,12 +155,12 @@ And then use the OR operator to convert it to the following:
 (a|b|c):(x|y|z)
 Now, both of the strings "abc:xyz" and "acb:xyz" would match, as well as "a:z", but "xyz:abc" would not.
 
-Character Escapes
+## Character Escapes
 The backslash (\) in a regex escapes a character that otherwise would be interpreted literally. For example, the open curly brace ({) is used to begin a quantifier, but adding a backslash before the open curly brace (\{) means that the regex should look for the open curly brace character instead of beginning to define a quantifier. This is common when looking for strings with special characters that are the same as a particular component of a regex.
 
 It's important to note that all special characters, including the backslash (\), lose their special significance inside bracket expressions.
 
-Character Classes
+## Character Classes
 A character class in a regex defines a set of characters, any one of which can occur in an input string to fulfill a match. We've actually already discussed some character classes. The bracket expressions outlined previously, including positive and negative character groups, are considered character classes.
 
 Here are some of the other common character classes:
@@ -173,7 +175,7 @@ Here are some of the other common character classes:
 
 Each of the last three character classes can be changed to perform an inverse match by capitalizing the letter character. For example, \D matches a non-digit character.
 
-Flags
+## Flags
 We started this tutorial by explaining that as a literal, a regex must be wrapped in slash characters. The one exception to this rule is with the component known as flags. Flags are placed at the end of a regex, after the second slash, and they define additional functionality or limits for the regex. There are six optional flags that can be used, either separately or together and in any order, but these are the three you're most likely to encounter:
 
 g—Global search: the regex should be tested against all possible matches in a string.
